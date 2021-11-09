@@ -1,0 +1,26 @@
+<p>Listado de Heroes</p>
+
+<!-- Directivas estructurales para poder alterar el DOM -->
+
+<!-- Directiva *ngFor , funciona como un for para duplicar elementos en mi html-->
+
+<ul>
+  <li *ngFor="let heroe of heroes; let i = index">{{ i }} -- {{ heroe }}</li>
+</ul>
+
+<div *ngIf="heroeBorrado !== ''; else noBorrado">
+  <h3>
+    Héroe borrado: <small>{{ heroeBorrado }}</small>
+  </h3>
+</div>
+
+<br />
+
+<!-- Esto es un referencia local se reconoce por el simbolo # -->
+<ng-template #noBorrado>
+  <h3>No ha borrado nada.</h3>
+</ng-template>
+
+<button (click)="borrarHeroe()">Borrar</button>
+
+<!-- directiva *ngIf  -->
